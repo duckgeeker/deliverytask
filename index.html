@@ -29,10 +29,6 @@
 <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">
 
-
-    
-    <!-- Custom styles for this template -->
-    <link href="navbar.css" rel="stylesheet">
   </head>
 <body style="font-family: Roboto; font-style: normal; font-weight: normal;">
 	
@@ -115,7 +111,7 @@
 									<div class="row" id="itemCase" style="border:#6E6E6E 1px solid; border-radius: 0.2em;">
 										<div class="col-md-8 my-3">
 											<label for="cc-number">Номер телефону</label>
-											<input type="text" class="form-control tel" id="cc-number" placeholder="" required="">
+											<input type="text" class="form-control tel" id="cc-number" placeholder="+38(___) ___-____" required="">
 										</div>
 										<div class="col-md-4 my-3">
 											<label for="cc-number">Сумма</label>
@@ -131,7 +127,7 @@
 								<div class="col-md-8 my-3">
 								</div>
 								<div class="col-md-4 mt-0 my-3">
-									<a class="btn btn-primary" onclick="addCase()" style="width:100%;height:40px;background:#A9C239;border:none;border-radius:0px;padding-bottom:0px;padding-top:10px;">
+									<a class="btn btn-primary" id="add-case" onclick="addCase()" style="width:100%;height:40px;background:#A9C239;border:none;border-radius:0px;padding-bottom:0px;padding-top:10px;">
 										<svg width="1.1em" height="1.1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 											<path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
 											<path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
@@ -169,17 +165,18 @@
 			  </div>
 
 		</div>
+		
 		<!--Маска для номеров телефона-->
 		<script type="text/javascript">
-			jQuery(function($){
-			$(".tel").mask("+38(999) 999-9999");
-			});
-			$('.tel').on('change','.tel', function(){
-				alert('event on  new_wl');
+			$(document).ready(function($){
+				$('#cases').on('input', '.tel', function () {
+					$(this).mask("+38(999) 999-9999");
+				});
 			});
 		</script>
 		
 <script>
+	//ADD AND REMOVE ORDER CASE
 	function addElement(parentId, elementTag, elementId, html) {
 		var p = document.getElementById(parentId);
 		var newElement = document.createElement(elementTag);
@@ -212,7 +209,7 @@
 		'</div>' +
 		'<div class="col-md-8 my-3">' +
 		'<label for="cc-number">Номер телефону</label>' +
-		'<input type="text" class="form-control tel" id="cc-number" placeholder="" required="">' +
+		'<input type="text" class="form-control tel" id="cc-number" placeholder="+38(___) ___-____" required="">' +
 		'</div>' +
 		'<div class="col-md-4 my-3">' +
 		'<label for="cc-number">Сумма</label>' +
@@ -221,11 +218,17 @@
 		'</div>';
 		addElement('cases', 'div', stringId, html);
 	}  
+	$(document).ready(function($){
+		$('#order-btn').on('click', function () {
 
+		});
+	});
 	//CLICK IN MAIN BUTTON
 	$("#order-btn").bind("click", function() {
+
 		checkCost();
-		checkPhone();
+			checkPhone();
+
 		checkReceiver();
 		/*
 		if(checkCost() && checkPhone() && checkReceiver()){
@@ -237,8 +240,44 @@
 	function checkCost(){
 		var cost_count = document.getElementsByClassName('cost').length;
 		var linkCost;
+		var valueCost;
+		let arrCost = [cost_count];
+
+		for(var i = 1; i <= cost_count; i++) {
+			linkCost = "#case_" + i + " .cost";
+			valueCost = document.querySelector(linkCost).value;
+			arrCost[i-1] = valueCost;
+		}
+
+		for(var i = 0; i < cost_count; i++) {
+			if (!isNaN(arrCost[i]) && arrCost[i] != "") { 
+				if(arrCost[i] > 100){
+					addCase();
+					document.querySelector(linkCost).style.border = '1px solid red';
+					document.querySelector(".error_message").style.display = 'block';
+					document.querySelector("label[class=error_text]").innerHTML = "Ви ввели суму більше 100грн, тому було створенно ще одну форму, загальна сума в полі повинна дорівнювати 100грн. ";
+				}
+				if(arrCost[i] < 100){
+					document.querySelector(".error_message").style.display = 'block';
+					document.querySelector("label[class=error_text]").innerHTML = "Сума попопнення повинна дорівнювати 100грн. ";
+					document.querySelector(linkCost).style.border = '1px solid red';
+				}
+			}
+			else if(arrCost[i] != 100){
+				document.querySelector(".error_message").style.display = 'block';
+				document.querySelector("label[class=error_text]").innerHTML = "Введено не коректні данні!";
+				document.querySelector(linkCost).style.border = '1px solid red';
+			}//false cost
+			
+			if(arrCost[i] == 100){
+				document.querySelector(".error_message").style.display = 'none';
+				document.querySelector(linkCost).style.border = '1px solid #ced4da';
+			}//true cost
+		}
+
+		/*
 		for (var i = 1; i <= cost_count; i++) {
-			linkCost = "#" + "case_" + i + " .cost";
+			linkCost = "#case_" + i + " .cost";
 			var valueCost = document.querySelector(linkCost).value;
 			if (!isNaN(valueCost) && valueCost != "") { 
 				if(valueCost > 100){
@@ -246,60 +285,53 @@
 					document.querySelector(linkCost).style.border = '1px solid red';
 					document.querySelector(".error_message").style.display = 'block';
 					document.querySelector("label[class=error_text]").innerHTML = "Ви ввели суму більше 100грн, тому було створенно ще одну форму, загальна сума в полі повинна дорівнювати 100грн. ";
-					return false;
 				}
-				if(valueCost != 100){
+				if(valueCost < 100){
 					document.querySelector(".error_message").style.display = 'block';
 					document.querySelector("label[class=error_text]").innerHTML = "Сума попопнення повинна дорівнювати 100грн. ";
 					document.querySelector(linkCost).style.border = '1px solid red';
-					return false;
 				}
 			}
-			else{
+			else if(valueCost != 100){
 				document.querySelector(".error_message").style.display = 'block';
 				document.querySelector("label[class=error_text]").innerHTML = "Введено не коректні данні!";
 				document.querySelector(linkCost).style.border = '1px solid red';
-				return false;
 			}//false cost
-
+			
 			if(valueCost == 100){
 				document.querySelector(".error_message").style.display = 'none';
 				document.querySelector(linkCost).style.border = '1px solid #ced4da';
-				return true;
 			}//true cost
 		}
+		*/
 	}
 	function checkPhone(){
 		var phone_count = document.getElementsByClassName('tel').length;
 		var linkPhone;
+		//alert(document.querySelector('#case_1 .tel').value.length);
 		for (var i = 1; i <= phone_count; i++) {
-			linkPhone = "#" + "case_" + i + " .tel";
-			
-			if( document.querySelector(linkPhone).value.length != 17 ){
-				document.querySelector(linkPhone).style.border = '1px solid red';
-				return false;
+			linkPhone = "#case_" + i + " .tel";
+			if( document.querySelector(linkPhone).value.length == 17 ){
+				document.querySelector(linkPhone).style.border = '1px solid #ced4da';
 			}
 			else{
-				document.querySelector(linkPhone).style.border = '1px solid #ced4da';
-				return true;
+				document.querySelector(linkPhone).style.border = '1px solid red';
 			}
 		}
 	}
 	function checkReceiver(){
 		if( document.querySelector('#name_receiver').value.length > 0 ){
 			document.querySelector('#name_receiver').style.border = '1px solid #ced4da';
-			return true;
 		}
 		else{
 			document.querySelector('#name_receiver').style.border = '1px solid red';
-			return false;
 		}
 	}
+
 </script>
 	<script src="js/maskinput.js"></script>
 	  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	  <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
-	  <script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
 
 </body>
 </html>
