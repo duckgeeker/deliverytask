@@ -35,7 +35,7 @@
 	<nav class="navbar navbar-expand-lg navbar-dark" style="height:104px;background-color:#6E6E6E;">
 		<div class="container-xl">
 		  <!--<a class="navbar-brand" href="#">Container XL</a>-->
-		  <img src="/image/logo.png" alt="">
+		  <img src="image/logo.png" alt="">
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		  </button>
@@ -51,10 +51,10 @@
 					<div style="margin-top: 13px;">
 						<ul class="navbar-nav mr-auto my-2" style="margin-top:15px;">
 							<li class="nav-item">
-								<a href=""><img src="~/image/002-instagram.png" style="margin: 2px 8px 0px 8px;" alt=""></a>
-								<a href=""><img src="~/image/003-facebook.png" alt=""></a>
-								<a href=""><img src="/image/001-youtube.png" style="margin: 4px 8px 0px 8px;" alt=""></a>
-								<a href=""><img src="/image/002-linkedin.png" style="margin: 2px 6px 0px 0px;" alt=""></a>
+								<a href=""><img src="image/002-instagram.png" style="margin: 2px 8px 0px 8px;" alt=""></a>
+								<a href=""><img src="image/003-facebook.png" alt=""></a>
+								<a href=""><img src="image/001-youtube.png" style="margin: 4px 8px 0px 8px;" alt=""></a>
+								<a href=""><img src="image/002-linkedin.png" style="margin: 2px 6px 0px 0px;" alt=""></a>
 							</li>
 						</ul>
 						<div class="dropdown" style="margin-top: 15px;">
