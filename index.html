@@ -76,21 +76,25 @@
 		</div>
 	  </nav>
 	  
-		<nav class="navbar navbar-expand-lg navbar-dark" style="height:56px;background-color:rgba(169,194,57,0.6);">
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:rgba(169,194,57,0.6);">
 			
 			<div class="container-xl">
-				
-				<div class="pricing-header px-3 py-3 mx-auto text-center">
-					<p class="my-2" style="font-size:12px;line-height:14px;text-align:center;color:#000000;">СТРАХОВА КОМПАНІЯ «КВОРУМ» НА СТОРОЖІ БЕЗПЕЧНИХ ПЕРЕВЕЗЕНЬ ВАНТАЖІВ</p>
+				<div class="col-md-11"> 
+					<div class="pricing-header px-0 py-0 mx-auto text-center">
+						<p class="my-2" style="font-size:12px;line-height:14px;text-align:center;color:#000000;">СТРАХОВА КОМПАНІЯ «КВОРУМ» НА СТОРОЖІ БЕЗПЕЧНИХ ПЕРЕВЕЗЕНЬ ВАНТАЖІВ</p>
+					</div>
 				</div>
-				<div class="navbar-nav py-3 position-static">
-					<a href="">
-						<svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-x" fill="white" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
-							<path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
-						</svg>
-					</a>
+				<div class="col-md-1"> 
+					<div class="navbar-nav py-0 position-static">
+						<a href="" class="text-center">
+							<svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-x" fill="white" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+								<path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+							</svg>
+						</a>
+					</div>
 				</div>
+
 
 			</div>
 
@@ -103,12 +107,12 @@
 				  <h3 class="mb-3 my-3">Кошик</h3>
 				  <hr class="mb-4">
 				  <h5 class="mb-0 my-2">Інформація про одержувача:</h5>
-				  <p class="mb-3 my-2">Загальна сума для поповнення 100грн</p>
+				  <p class="mb-3 my-2" id="order_message">Загальна сума для поповнення 100грн</p>
 					<div class="row">
 						<div class="col-md-5 order-md-1 mb-4">
 							<div id="cases">
 								<div id="case_1">
-									<div class="row" id="itemCase" style="border:#6E6E6E 1px solid; border-radius: 0.2em;">
+									<div class="row" id="itemCase" style="background-color:#F5F5F5;border:#ced4da 1px solid;">
 										<div class="col-md-8 my-3">
 											<label for="cc-number">Номер телефону</label>
 											<input type="text" class="form-control tel" id="cc-number" placeholder="+38(___) ___-____" required="">
@@ -120,15 +124,12 @@
 									</div>
 								</div>
 							</div>
-
-
-			
-							<div class="row">
+							<div class="row"><!--button add case-->
 								<div class="col-md-8 my-3">
 								</div>
 								<div class="col-md-4 mt-0 my-3">
-									<a class="btn btn-primary" id="add-case" onclick="addCase()" style="width:100%;height:40px;background:#A9C239;border:none;border-radius:0px;padding-bottom:0px;padding-top:10px;">
-										<svg width="1.1em" height="1.1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<a class="btn btn-primary" id="add-case" onclick="addCase()" style="color:#FFFFFF;width:100%;height:40px;background:#A9C239;border:none;border-radius:0px;padding-bottom:0px;padding-top:10px;">
+										<svg width="1.1em" height="1.1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="white" xmlns="http://www.w3.org/2000/svg">
 											<path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
 											<path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
 											<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -138,8 +139,7 @@
 								</div>
 							</div>
 						</div>
-	
-						<div class="col-md-7 order-md-2 mb-4" style="border:#6E6E6E 1px solid; border-radius: 0.2em;">
+						<div class="col-md-7 order-md-2 mb-4" style="background-color:#F5F5F5;border:#ced4da 1px solid;">
 							<div class="row">
 								<div class="col-md-12 mt-3">
 									<label for="name_receiver">Одержувач</label>
@@ -166,14 +166,14 @@
 
 		</div>
 		
-		<!--Маска для номеров телефона-->
-		<script type="text/javascript">
-			$(document).ready(function($){
-				$('#cases').on('input', '.tel', function () {
-					$(this).mask("+38(999) 999-9999");
-				});
-			});
-		</script>
+<!--Маска для номеров телефона-->
+<script type="text/javascript">
+$(document).ready(function($){
+	$('#cases').on('input', '.tel', function () {
+		$(this).mask("+38(999) 999-9999");
+	});
+});
+</script>
 		
 <script>
 	//ADD AND REMOVE ORDER CASE
@@ -193,7 +193,7 @@
 		fileId++;
 		var stringId = "case_" + fileId;
 		var html = 
-		'<div class="row" id="itemCase" style="border:#6E6E6E 1px solid; border-radius: 0.2em;">' +
+		'<div class="row" id="itemCase" style="background-color:#F5F5F5;border:#ced4da 1px solid;">' +
 		'<div class="col-md-12">' +
 		'<div class="row">' +
 		'<div class="col-md-10 mb-0 mt-2"></div>' +
@@ -218,120 +218,85 @@
 		'</div>';
 		addElement('cases', 'div', stringId, html);
 	}  
-	$(document).ready(function($){
-		$('#order-btn').on('click', function () {
-
-		});
-	});
 	//CLICK IN MAIN BUTTON
-	$("#order-btn").bind("click", function() {
-
+	var Cost = "false";
+	var Phone = "false";
+	var Receiver = "false";
+	$("#order-btn").bind("click", function() {	
 		checkCost();
-			checkPhone();
-
-		checkReceiver();
-		/*
-		if(checkCost() && checkPhone() && checkReceiver()){
-			alert("Замовлення прийняте!");
+		checkPhone();
+		checkReceiver();		
+		//alert("Costes: " + Cost + " Phones: " + Phone + " Receiver: " + Receiver);
+		if(Cost == "true" && Phone == "true" && Receiver == "true"){
+			alert("Замволення прийняте");
 		}
-		*/
 	});	
 	
 	function checkCost(){
+		trueOrder = -1;
 		var cost_count = document.getElementsByClassName('cost').length;
 		var linkCost;
 		var valueCost;
 		let arrCost = [cost_count];
+		var trueCost = 0;//к-сть input з вірними значеннями
 
-		for(var i = 1; i <= cost_count; i++) {
-			linkCost = "#case_" + i + " .cost";
-			valueCost = document.querySelector(linkCost).value;
-			arrCost[i-1] = valueCost;
-		}
-
-		for(var i = 0; i < cost_count; i++) {
-			if (!isNaN(arrCost[i]) && arrCost[i] != "") { 
-				if(arrCost[i] > 100){
-					addCase();
-					document.querySelector(linkCost).style.border = '1px solid red';
-					document.querySelector(".error_message").style.display = 'block';
-					document.querySelector("label[class=error_text]").innerHTML = "Ви ввели суму більше 100грн, тому було створенно ще одну форму, загальна сума в полі повинна дорівнювати 100грн. ";
-				}
-				if(arrCost[i] < 100){
-					document.querySelector(".error_message").style.display = 'block';
-					document.querySelector("label[class=error_text]").innerHTML = "Сума попопнення повинна дорівнювати 100грн. ";
-					document.querySelector(linkCost).style.border = '1px solid red';
-				}
-			}
-			else if(arrCost[i] != 100){
-				document.querySelector(".error_message").style.display = 'block';
-				document.querySelector("label[class=error_text]").innerHTML = "Введено не коректні данні!";
-				document.querySelector(linkCost).style.border = '1px solid red';
-			}//false cost
-			
-			if(arrCost[i] == 100){
-				document.querySelector(".error_message").style.display = 'none';
-				document.querySelector(linkCost).style.border = '1px solid #ced4da';
-			}//true cost
-		}
-
-		/*
 		for (var i = 1; i <= cost_count; i++) {
 			linkCost = "#case_" + i + " .cost";
 			var valueCost = document.querySelector(linkCost).value;
-			if (!isNaN(valueCost) && valueCost != "") { 
-				if(valueCost > 100){
-					addCase();
+			if (!isNaN(valueCost) && valueCost != "") {  //тільки чифри та не пусте значення
+				if(valueCost != 100){
+					document.querySelector('#order_message').style.color = 'red';
 					document.querySelector(linkCost).style.border = '1px solid red';
-					document.querySelector(".error_message").style.display = 'block';
-					document.querySelector("label[class=error_text]").innerHTML = "Ви ввели суму більше 100грн, тому було створенно ще одну форму, загальна сума в полі повинна дорівнювати 100грн. ";
+					Cost = "false";
 				}
-				if(valueCost < 100){
-					document.querySelector(".error_message").style.display = 'block';
-					document.querySelector("label[class=error_text]").innerHTML = "Сума попопнення повинна дорівнювати 100грн. ";
-					document.querySelector(linkCost).style.border = '1px solid red';
+				if(valueCost == 100){
+					trueCost++;
+					document.querySelector(linkCost).style.border = '1px solid #ced4da';
 				}
 			}
-			else if(valueCost != 100){
-				document.querySelector(".error_message").style.display = 'block';
-				document.querySelector("label[class=error_text]").innerHTML = "Введено не коректні данні!";
+			else{
 				document.querySelector(linkCost).style.border = '1px solid red';
-			}//false cost
-			
-			if(valueCost == 100){
-				document.querySelector(".error_message").style.display = 'none';
-				document.querySelector(linkCost).style.border = '1px solid #ced4da';
-			}//true cost
+				Cost = "false";
+			}
 		}
-		*/
+		if(trueCost == cost_count){
+			document.querySelector('#order_message').style.color = 'black';
+			Cost = "true";
+		}
 	}
 	function checkPhone(){
 		var phone_count = document.getElementsByClassName('tel').length;
 		var linkPhone;
-		//alert(document.querySelector('#case_1 .tel').value.length);
+		var truePhone = 0;//к-сть input з вірними номерами
 		for (var i = 1; i <= phone_count; i++) {
 			linkPhone = "#case_" + i + " .tel";
 			if( document.querySelector(linkPhone).value.length == 17 ){
 				document.querySelector(linkPhone).style.border = '1px solid #ced4da';
+				truePhone++;
 			}
 			else{
 				document.querySelector(linkPhone).style.border = '1px solid red';
+				Phone = "false";
 			}
+		}
+		if(truePhone == phone_count){
+			Phone = "true";
 		}
 	}
 	function checkReceiver(){
 		if( document.querySelector('#name_receiver').value.length > 0 ){
 			document.querySelector('#name_receiver').style.border = '1px solid #ced4da';
+			Receiver = "true";
 		}
 		else{
 			document.querySelector('#name_receiver').style.border = '1px solid red';
+			Receiver = "false";
 		}
 	}
-
 </script>
-	<script src="js/maskinput.js"></script>
-	  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	  <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+<script src="js/maskinput.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
 
 </body>
 </html>
