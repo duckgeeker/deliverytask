@@ -51,8 +51,8 @@
 					<div style="margin-top: 13px;">
 						<ul class="navbar-nav mr-auto my-2" style="margin-top:15px;">
 							<li class="nav-item">
-								<a href=""><img src="/image/002-instagram.png" style="margin: 2px 8px 0px 8px;" alt=""></a>
-								<a href=""><img src="/image/003-facebook.png" alt=""></a>
+								<a href=""><img src="~/image/002-instagram.png" style="margin: 2px 8px 0px 8px;" alt=""></a>
+								<a href=""><img src="~/image/003-facebook.png" alt=""></a>
 								<a href=""><img src="/image/001-youtube.png" style="margin: 4px 8px 0px 8px;" alt=""></a>
 								<a href=""><img src="/image/002-linkedin.png" style="margin: 2px 6px 0px 0px;" alt=""></a>
 							</li>
